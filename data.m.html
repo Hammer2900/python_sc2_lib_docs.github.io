@@ -1,0 +1,4705 @@
+<!doctype html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+
+    <title>sc2.data API documentation</title>
+    <meta name="description" content="" />
+
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300' rel='stylesheet' type='text/css'>
+  
+  <style type="text/css">
+  
+* {
+  box-sizing: border-box;
+}
+/*! normalize.css v1.1.1 | MIT License | git.io/normalize */
+
+/* ==========================================================================
+   HTML5 display definitions
+   ========================================================================== */
+
+/**
+ * Correct `block` display not defined in IE 6/7/8/9 and Firefox 3.
+ */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+    display: block;
+}
+
+/**
+ * Correct `inline-block` display not defined in IE 6/7/8/9 and Firefox 3.
+ */
+
+audio,
+canvas,
+video {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+
+audio:not([controls]) {
+    display: none;
+    height: 0;
+}
+
+/**
+ * Address styling not present in IE 7/8/9, Firefox 3, and Safari 4.
+ * Known issue: no IE 6 support.
+ */
+
+[hidden] {
+    display: none;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+/**
+ * 1. Prevent system color scheme's background color being used in Firefox, IE,
+ *    and Opera.
+ * 2. Prevent system color scheme's text color being used in Firefox, IE, and
+ *    Opera.
+ * 3. Correct text resizing oddly in IE 6/7 when body `font-size` is set using
+ *    `em` units.
+ * 4. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+
+html {
+    background: #fff; /* 1 */
+    color: #000; /* 2 */
+    font-size: 100%; /* 3 */
+    -webkit-text-size-adjust: 100%; /* 4 */
+    -ms-text-size-adjust: 100%; /* 4 */
+}
+
+/**
+ * Address `font-family` inconsistency between `textarea` and other form
+ * elements.
+ */
+
+html,
+button,
+input,
+select,
+textarea {
+    font-family: sans-serif;
+}
+
+/**
+ * Address margins handled incorrectly in IE 6/7.
+ */
+
+body {
+    margin: 0;
+}
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+
+/**
+ * Address `outline` inconsistency between Chrome and other browsers.
+ */
+
+a:focus {
+    outline: thin dotted;
+}
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+
+a:active,
+a:hover {
+    outline: 0;
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+/**
+ * Address font sizes and margins set differently in IE 6/7.
+ * Address font sizes within `section` and `article` in Firefox 4+, Safari 5,
+ * and Chrome.
+ */
+
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin: 0.83em 0;
+}
+
+h3 {
+    font-size: 1.17em;
+    margin: 1em 0;
+}
+
+h4 {
+    font-size: 1em;
+    margin: 1.33em 0;
+}
+
+h5 {
+    font-size: 0.83em;
+    margin: 1.67em 0;
+}
+
+h6 {
+    font-size: 0.67em;
+    margin: 2.33em 0;
+}
+
+/**
+ * Address styling not present in IE 7/8/9, Safari 5, and Chrome.
+ */
+
+abbr[title] {
+    border-bottom: 1px dotted;
+}
+
+/**
+ * Address style set to `bolder` in Firefox 3+, Safari 4/5, and Chrome.
+ */
+
+b,
+strong {
+    font-weight: bold;
+}
+
+blockquote {
+    margin: 1em 40px;
+}
+
+/**
+ * Address styling not present in Safari 5 and Chrome.
+ */
+
+dfn {
+    font-style: italic;
+}
+
+/**
+ * Address differences between Firefox and other browsers.
+ * Known issue: no IE 6/7 normalization.
+ */
+
+hr {
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 0;
+}
+
+/**
+ * Address styling not present in IE 6/7/8/9.
+ */
+
+mark {
+    background: #ff0;
+    color: #000;
+}
+
+/**
+ * Address margins set differently in IE 6/7.
+ */
+
+p,
+pre {
+    margin: 1em 0;
+}
+
+/**
+ * Correct font family set oddly in IE 6, Safari 4/5, and Chrome.
+ */
+
+code,
+kbd,
+pre,
+samp {
+    font-family: monospace, serif;
+    _font-family: 'courier new', monospace;
+    font-size: 1em;
+}
+
+/**
+ * Improve readability of pre-formatted text in all browsers.
+ */
+
+pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/**
+ * Address CSS quotes not supported in IE 6/7.
+ */
+
+q {
+    quotes: none;
+}
+
+/**
+ * Address `quotes` property not supported in Safari 4.
+ */
+
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+
+small {
+    font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sup {
+    top: -0.5em;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+/* ==========================================================================
+   Lists
+   ========================================================================== */
+
+/**
+ * Address margins set differently in IE 6/7.
+ */
+
+dl,
+menu,
+ol,
+ul {
+    margin: 1em 0;
+}
+
+dd {
+    margin: 0 0 0 40px;
+}
+
+/**
+ * Address paddings set differently in IE 6/7.
+ */
+
+menu,
+ol,
+ul {
+    padding: 0 0 0 40px;
+}
+
+/**
+ * Correct list images handled incorrectly in IE 7.
+ */
+
+nav ul,
+nav ol {
+    list-style: none;
+    list-style-image: none;
+}
+
+/* ==========================================================================
+   Embedded content
+   ========================================================================== */
+
+/**
+ * 1. Remove border when inside `a` element in IE 6/7/8/9 and Firefox 3.
+ * 2. Improve image quality when scaled in IE 7.
+ */
+
+img {
+    border: 0; /* 1 */
+    -ms-interpolation-mode: bicubic; /* 2 */
+}
+
+/**
+ * Correct overflow displayed oddly in IE 9.
+ */
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+/* ==========================================================================
+   Figures
+   ========================================================================== */
+
+/**
+ * Address margin not present in IE 6/7/8/9, Safari 5, and Opera 11.
+ */
+
+figure {
+    margin: 0;
+}
+
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+
+/**
+ * Correct margin displayed oddly in IE 6/7.
+ */
+
+form {
+    margin: 0;
+}
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+
+fieldset {
+    border: 1px solid #c0c0c0;
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct color not being inherited in IE 6/7/8/9.
+ * 2. Correct text not wrapping in Firefox 3.
+ * 3. Correct alignment displayed oddly in IE 6/7.
+ */
+
+legend {
+    border: 0; /* 1 */
+    padding: 0;
+    white-space: normal; /* 2 */
+    *margin-left: -7px; /* 3 */
+}
+
+/**
+ * 1. Correct font size not being inherited in all browsers.
+ * 2. Address margins set differently in IE 6/7, Firefox 3+, Safari 5,
+ *    and Chrome.
+ * 3. Improve appearance and consistency in all browsers.
+ */
+
+button,
+input,
+select,
+textarea {
+    font-size: 100%; /* 1 */
+    margin: 0; /* 2 */
+    vertical-align: baseline; /* 3 */
+    *vertical-align: middle; /* 3 */
+}
+
+/**
+ * Address Firefox 3+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+
+button,
+input {
+    line-height: normal;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Chrome, Safari 5+, and IE 6+.
+ * Correct `select` style inheritance in Firefox 4+ and Opera.
+ */
+
+button,
+select {
+    text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ * 4. Remove inner spacing in IE 7 without affecting normal text inputs.
+ *    Known issue: inner spacing remains in IE 6.
+ */
+
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+input[type="submit"] {
+    -webkit-appearance: button; /* 2 */
+    cursor: pointer; /* 3 */
+    *overflow: visible;  /* 4 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+
+button[disabled],
+html input[disabled] {
+    cursor: default;
+}
+
+/**
+ * 1. Address box sizing set to content-box in IE 8/9.
+ * 2. Remove excess padding in IE 8/9.
+ * 3. Remove excess padding in IE 7.
+ *    Known issue: excess padding remains in IE 6.
+ */
+
+input[type="checkbox"],
+input[type="radio"] {
+    box-sizing: border-box; /* 1 */
+    padding: 0; /* 2 */
+    *height: 13px; /* 3 */
+    *width: 13px; /* 3 */
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
+ *    (include `-moz` to future-proof).
+ */
+
+input[type="search"] {
+    -webkit-appearance: textfield; /* 1 */
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box; /* 2 */
+    box-sizing: content-box;
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari 5 and Chrome
+ * on OS X.
+ */
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+/**
+ * Remove inner padding and border in Firefox 3+.
+ */
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+/**
+ * 1. Remove default vertical scrollbar in IE 6/7/8/9.
+ * 2. Improve readability and alignment in all browsers.
+ */
+
+textarea {
+    overflow: auto; /* 1 */
+    vertical-align: top; /* 2 */
+}
+
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+
+/**
+ * Remove most spacing between table cells.
+ */
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+  </style>
+
+  <style type="text/css">
+  
+  html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+  }
+  body {
+    background: #fff;
+    font-family: "Source Sans Pro", "Helvetica Neueue", Helvetica, sans;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.6em;
+  }
+  #content {
+    width: 70%;
+    max-width: 850px;
+    float: left;
+    padding: 30px 60px;
+    border-left: 1px solid #ddd;
+  }
+  #sidebar {
+    width: 25%;
+    float: left;
+    padding: 30px;
+    overflow: hidden;
+  }
+  #nav {
+    font-size: 130%;
+    margin: 0 0 15px 0;
+  }
+
+  #top {
+    display: block;
+    position: fixed;
+    bottom: 5px;
+    left: 5px;
+    font-size: .85em;
+    text-transform: uppercase;
+  }
+
+  #footer {
+    font-size: .75em;
+    padding: 5px 30px;
+    border-top: 1px solid #ddd;
+    text-align: right;
+  }
+    #footer p {
+      margin: 0 0 0 30px;
+      display: inline-block;
+    }
+
+  h1, h2, h3, h4, h5 {
+    font-weight: 300;
+  }
+  h1 {
+    font-size: 2.5em;
+    line-height: 1.1em;
+    margin: 0 0 .50em 0;
+  }
+
+  h2 {
+    font-size: 1.75em;
+    margin: 1em 0 .50em 0;
+  }
+
+  h3 {
+    margin: 25px 0 10px 0;
+  }
+
+  h4 {
+    margin: 0;
+    font-size: 105%;
+  }
+
+  a {
+    color: #058;
+    text-decoration: none;
+    transition: color .3s ease-in-out;
+  }
+
+  a:hover {
+    color: #e08524;
+    transition: color .3s ease-in-out;
+  }
+
+  pre, code, .mono, .name {
+    font-family: "Ubuntu Mono", "Cousine", "DejaVu Sans Mono", monospace;
+  }
+
+  .title .name {
+    font-weight: bold;
+  }
+  .section-title {
+    margin-top: 2em;
+  }
+  .ident {
+    color: #900;
+  }
+
+  code {
+    background: #f9f9f9;
+  } 
+
+  pre {
+    background: #fefefe;
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 0 #f3f3f3;
+    margin: 0 30px;
+    padding: 15px 30px;
+  }
+
+  .codehilite {
+    margin: 0 30px 10px 30px;
+  }
+
+    .codehilite pre {
+      margin: 0;
+    }
+    .codehilite .err { background: #ff3300; color: #fff !important; } 
+
+  table#module-list {
+    font-size: 110%;
+  }
+
+    table#module-list tr td:first-child {
+      padding-right: 10px;
+      white-space: nowrap;
+    }
+
+    table#module-list td {
+      vertical-align: top;
+      padding-bottom: 8px;
+    }
+
+      table#module-list td p {
+        margin: 0 0 7px 0;
+      }
+
+  .def {
+    display: table;
+  }
+
+    .def p {
+      display: table-cell;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    .def p:first-child {
+      white-space: nowrap;
+    }
+
+    .def p:last-child {
+      width: 100%;
+    }
+
+
+  #index {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+    ul#index .class_name {
+      /* font-size: 110%; */
+      font-weight: bold;
+    }
+    #index ul {
+      margin: 0;
+    }
+
+  .item {
+    margin: 0 0 15px 0;
+  }
+
+    .item .class {
+      margin: 0 0 25px 30px;
+    }
+
+      .item .class ul.class_list {
+        margin: 0 0 20px 0;
+      }
+
+    .item .name {
+      background: #fafafa;
+      margin: 0;
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 3px;
+      display: inline-block;
+      min-width: 40%;
+    }
+      .item .name:hover {
+        background: #f6f6f6;
+      }
+
+    .item .empty_desc {
+      margin: 0 0 5px 0;
+      padding: 0;
+    }
+
+    .item .inheritance {
+      margin: 3px 0 0 30px;
+    }
+
+    .item .inherited {
+      color: #666;
+    }
+
+    .item .desc {
+      padding: 0 8px;
+      margin: 0;
+    }
+
+      .item .desc p {
+        margin: 0 0 10px 0;
+      }
+
+    .source_cont {
+      margin: 0;
+      padding: 0;
+    }
+
+    .source_link a {
+      background: #ffc300;
+      font-weight: 400;
+      font-size: .75em;
+      text-transform: uppercase;
+      color: #fff;
+      text-shadow: 1px 1px 0 #f4b700;
+      
+      padding: 3px 8px;
+      border-radius: 2px;
+      transition: background .3s ease-in-out;
+    }
+      .source_link a:hover {
+        background: #FF7200;
+        text-shadow: none;
+        transition: background .3s ease-in-out;
+      }
+
+    .source {
+      display: none;
+      max-height: 600px;
+      overflow-y: scroll;
+      margin-bottom: 15px;
+    }
+
+      .source .codehilite {
+        margin: 0;
+      }
+
+  .desc h1, .desc h2, .desc h3 {
+    font-size: 100% !important;
+  }
+  .clear {
+    clear: both;
+  }
+
+  @media all and (max-width: 950px) {
+    #sidebar {
+      width: 35%;
+    }
+    #content {
+      width: 65%;
+    }
+  }
+  @media all and (max-width: 650px) {
+    #top {
+      display: none;
+    }
+    #sidebar {
+      float: none;
+      width: auto;
+    }
+    #content {
+      float: none;
+      width: auto;
+      padding: 30px;
+    }
+
+    #index ul {
+      padding: 0;
+      margin-bottom: 15px;
+    }
+    #index ul li {
+      display: inline-block;
+      margin-right: 30px;
+    }
+    #footer {
+      text-align: left;
+    }
+    #footer p {
+      display: block;
+      margin: inherit;
+    }
+  }
+
+  /*****************************/
+
+  </style>
+
+  <style type="text/css">
+  .codehilite .hll { background-color: #ffffcc }
+.codehilite  { background: #f8f8f8; }
+.codehilite .c { color: #408080; font-style: italic } /* Comment */
+.codehilite .err { border: 1px solid #FF0000 } /* Error */
+.codehilite .k { color: #008000; font-weight: bold } /* Keyword */
+.codehilite .o { color: #666666 } /* Operator */
+.codehilite .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+.codehilite .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.codehilite .cp { color: #BC7A00 } /* Comment.Preproc */
+.codehilite .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+.codehilite .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.codehilite .cs { color: #408080; font-style: italic } /* Comment.Special */
+.codehilite .gd { color: #A00000 } /* Generic.Deleted */
+.codehilite .ge { font-style: italic } /* Generic.Emph */
+.codehilite .gr { color: #FF0000 } /* Generic.Error */
+.codehilite .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.codehilite .gi { color: #00A000 } /* Generic.Inserted */
+.codehilite .go { color: #888888 } /* Generic.Output */
+.codehilite .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.codehilite .gs { font-weight: bold } /* Generic.Strong */
+.codehilite .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.codehilite .gt { color: #0044DD } /* Generic.Traceback */
+.codehilite .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.codehilite .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.codehilite .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.codehilite .kp { color: #008000 } /* Keyword.Pseudo */
+.codehilite .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.codehilite .kt { color: #B00040 } /* Keyword.Type */
+.codehilite .m { color: #666666 } /* Literal.Number */
+.codehilite .s { color: #BA2121 } /* Literal.String */
+.codehilite .na { color: #7D9029 } /* Name.Attribute */
+.codehilite .nb { color: #008000 } /* Name.Builtin */
+.codehilite .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.codehilite .no { color: #880000 } /* Name.Constant */
+.codehilite .nd { color: #AA22FF } /* Name.Decorator */
+.codehilite .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.codehilite .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.codehilite .nf { color: #0000FF } /* Name.Function */
+.codehilite .nl { color: #A0A000 } /* Name.Label */
+.codehilite .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.codehilite .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.codehilite .nv { color: #19177C } /* Name.Variable */
+.codehilite .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.codehilite .w { color: #bbbbbb } /* Text.Whitespace */
+.codehilite .mb { color: #666666 } /* Literal.Number.Bin */
+.codehilite .mf { color: #666666 } /* Literal.Number.Float */
+.codehilite .mh { color: #666666 } /* Literal.Number.Hex */
+.codehilite .mi { color: #666666 } /* Literal.Number.Integer */
+.codehilite .mo { color: #666666 } /* Literal.Number.Oct */
+.codehilite .sa { color: #BA2121 } /* Literal.String.Affix */
+.codehilite .sb { color: #BA2121 } /* Literal.String.Backtick */
+.codehilite .sc { color: #BA2121 } /* Literal.String.Char */
+.codehilite .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.codehilite .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.codehilite .s2 { color: #BA2121 } /* Literal.String.Double */
+.codehilite .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.codehilite .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.codehilite .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.codehilite .sx { color: #008000 } /* Literal.String.Other */
+.codehilite .sr { color: #BB6688 } /* Literal.String.Regex */
+.codehilite .s1 { color: #BA2121 } /* Literal.String.Single */
+.codehilite .ss { color: #19177C } /* Literal.String.Symbol */
+.codehilite .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.codehilite .fm { color: #0000FF } /* Name.Function.Magic */
+.codehilite .vc { color: #19177C } /* Name.Variable.Class */
+.codehilite .vg { color: #19177C } /* Name.Variable.Global */
+.codehilite .vi { color: #19177C } /* Name.Variable.Instance */
+.codehilite .vm { color: #19177C } /* Name.Variable.Magic */
+.codehilite .il { color: #666666 } /* Literal.Number.Integer.Long */
+  </style>
+
+  <style type="text/css">
+  
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+    /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+       (-o-min-device-pixel-ratio: 5/4),
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid required HTTP connection: h5bp.com/r
+   ========================================================================== */
+
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster: h5bp.com/s */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links for images, or javascript/internal links
+     */
+
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group; /* h5bp.com/t */
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    @page {
+        margin: 0.5cm;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
+
+  </style>
+
+  <script type="text/javascript">
+  function toggle(id, $link) {
+    $node = document.getElementById(id);
+    if (!$node)
+    return;
+    if (!$node.style.display || $node.style.display == 'none') {
+    $node.style.display = 'block';
+    $link.innerHTML = 'Hide source &nequiv;';
+    } else {
+    $node.style.display = 'none';
+    $link.innerHTML = 'Show source &equiv;';
+    }
+  }
+  </script>
+</head>
+<body>
+<a href="#" id="top">Top</a>
+
+<div id="container">
+    
+  
+  <div id="sidebar">
+    <h1>Index</h1>
+    <ul id="index">
+    <li class="set"><h3><a href="#header-variables">Module variables</a></h3>
+      
+  <ul>
+    <li class="mono"><a href="#sc2.data.race_gas">race_gas</a></li>
+    <li class="mono"><a href="#sc2.data.race_townhalls">race_townhalls</a></li>
+    <li class="mono"><a href="#sc2.data.race_worker">race_worker</a></li>
+    <li class="mono"><a href="#sc2.data.warpgate_abilities">warpgate_abilities</a></li>
+  </ul>
+
+    </li>
+
+
+    <li class="set"><h3><a href="#header-classes">Classes</a></h3>
+      <ul>
+        <li class="mono">
+        <span class="class_name"><a href="#sc2.data.ActionResult">ActionResult</a></span>
+        
+        </li>
+        <li class="mono">
+        <span class="class_name"><a href="#sc2.data.Alert">Alert</a></span>
+        
+        </li>
+        <li class="mono">
+        <span class="class_name"><a href="#sc2.data.Alliance">Alliance</a></span>
+        
+        </li>
+        <li class="mono">
+        <span class="class_name"><a href="#sc2.data.Attribute">Attribute</a></span>
+        
+        </li>
+        <li class="mono">
+        <span class="class_name"><a href="#sc2.data.ChatChannel">ChatChannel</a></span>
+        
+        </li>
+        <li class="mono">
+        <span class="class_name"><a href="#sc2.data.CloakState">CloakState</a></span>
+        
+        </li>
+        <li class="mono">
+        <span class="class_name"><a href="#sc2.data.CreateGameError">CreateGameError</a></span>
+        
+        </li>
+        <li class="mono">
+        <span class="class_name"><a href="#sc2.data.Difficulty">Difficulty</a></span>
+        
+        </li>
+        <li class="mono">
+        <span class="class_name"><a href="#sc2.data.DisplayType">DisplayType</a></span>
+        
+        </li>
+        <li class="mono">
+        <span class="class_name"><a href="#sc2.data.PlayerType">PlayerType</a></span>
+        
+        </li>
+        <li class="mono">
+        <span class="class_name"><a href="#sc2.data.Race">Race</a></span>
+        
+        </li>
+        <li class="mono">
+        <span class="class_name"><a href="#sc2.data.Result">Result</a></span>
+        
+        </li>
+        <li class="mono">
+        <span class="class_name"><a href="#sc2.data.Status">Status</a></span>
+        
+        </li>
+        <li class="mono">
+        <span class="class_name"><a href="#sc2.data.Target">Target</a></span>
+        
+        </li>
+        <li class="mono">
+        <span class="class_name"><a href="#sc2.data.TargetType">TargetType</a></span>
+        
+        </li>
+      </ul>
+    </li>
+
+    </ul>
+  </div>
+
+    <article id="content">
+      
+  
+
+  
+
+
+  <header id="section-intro">
+  <h1 class="title"><span class="name">sc2.data</span> module</h1>
+  
+  
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-sc2.data', this);">Show source &equiv;</a></p>
+  <div id="source-sc2.data" class="source">
+    <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">enum</span>
+<span class="kn">from</span> <span class="nn">s2clientprotocol</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">sc2api_pb2</span> <span class="k">as</span> <span class="n">sc_pb</span><span class="p">,</span>
+    <span class="n">raw_pb2</span> <span class="k">as</span> <span class="n">raw_pb</span><span class="p">,</span>
+    <span class="n">data_pb2</span> <span class="k">as</span> <span class="n">data_pb</span><span class="p">,</span>
+    <span class="n">common_pb2</span> <span class="k">as</span> <span class="n">common_pb</span><span class="p">,</span>
+    <span class="n">error_pb2</span> <span class="k">as</span> <span class="n">error_pb</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Set</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Union</span> <span class="c1"># mypy type checking</span>
+
+<span class="kn">from</span> <span class="nn">.ids.unit_typeid</span> <span class="kn">import</span> <span class="n">UnitTypeId</span>
+<span class="kn">from</span> <span class="nn">.ids.ability_id</span> <span class="kn">import</span> <span class="n">AbilityId</span>
+
+<span class="sd">&quot;&quot;&quot; For the list of enums, see here</span>
+
+<span class="sd">https://github.com/Blizzard/s2client-api/blob/d9ba0a33d6ce9d233c2a4ee988360c188fbe9dbf/include/sc2api/sc2_gametypes.h</span>
+<span class="sd">https://github.com/Blizzard/s2client-api/blob/d9ba0a33d6ce9d233c2a4ee988360c188fbe9dbf/include/sc2api/sc2_action.h</span>
+<span class="sd">https://github.com/Blizzard/s2client-api/blob/d9ba0a33d6ce9d233c2a4ee988360c188fbe9dbf/include/sc2api/sc2_unit.h</span>
+<span class="sd">https://github.com/Blizzard/s2client-api/blob/d9ba0a33d6ce9d233c2a4ee988360c188fbe9dbf/include/sc2api/sc2_data.h</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">CreateGameError</span> <span class="o">=</span> <span class="n">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">(</span><span class="s2">&quot;CreateGameError&quot;</span><span class="p">,</span> <span class="n">sc_pb</span><span class="o">.</span><span class="n">ResponseCreateGame</span><span class="o">.</span><span class="n">Error</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+
+<span class="n">PlayerType</span> <span class="o">=</span> <span class="n">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">(</span><span class="s2">&quot;PlayerType&quot;</span><span class="p">,</span> <span class="n">sc_pb</span><span class="o">.</span><span class="n">PlayerType</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+<span class="n">Difficulty</span> <span class="o">=</span> <span class="n">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">(</span><span class="s2">&quot;Difficulty&quot;</span><span class="p">,</span> <span class="n">sc_pb</span><span class="o">.</span><span class="n">Difficulty</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+<span class="n">Status</span> <span class="o">=</span> <span class="n">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">(</span><span class="s2">&quot;Status&quot;</span><span class="p">,</span> <span class="n">sc_pb</span><span class="o">.</span><span class="n">Status</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+<span class="n">Result</span> <span class="o">=</span> <span class="n">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">(</span><span class="s2">&quot;Result&quot;</span><span class="p">,</span> <span class="n">sc_pb</span><span class="o">.</span><span class="n">Result</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+<span class="n">Alert</span> <span class="o">=</span> <span class="n">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">(</span><span class="s2">&quot;Alert&quot;</span><span class="p">,</span> <span class="n">sc_pb</span><span class="o">.</span><span class="n">Alert</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+<span class="n">ChatChannel</span> <span class="o">=</span> <span class="n">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">(</span><span class="s2">&quot;ChatChannel&quot;</span><span class="p">,</span> <span class="n">sc_pb</span><span class="o">.</span><span class="n">ActionChat</span><span class="o">.</span><span class="n">Channel</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+
+<span class="n">Race</span> <span class="o">=</span> <span class="n">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">(</span><span class="s2">&quot;Race&quot;</span><span class="p">,</span> <span class="n">common_pb</span><span class="o">.</span><span class="n">Race</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+
+<span class="n">DisplayType</span> <span class="o">=</span> <span class="n">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">(</span><span class="s2">&quot;DisplayType&quot;</span><span class="p">,</span> <span class="n">raw_pb</span><span class="o">.</span><span class="n">DisplayType</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+<span class="n">Alliance</span> <span class="o">=</span> <span class="n">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">(</span><span class="s2">&quot;Alliance&quot;</span><span class="p">,</span> <span class="n">raw_pb</span><span class="o">.</span><span class="n">Alliance</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+<span class="n">CloakState</span> <span class="o">=</span> <span class="n">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">(</span><span class="s2">&quot;CloakState&quot;</span><span class="p">,</span> <span class="n">raw_pb</span><span class="o">.</span><span class="n">CloakState</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+
+<span class="n">Attribute</span> <span class="o">=</span> <span class="n">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">(</span><span class="s2">&quot;Attribute&quot;</span><span class="p">,</span> <span class="n">data_pb</span><span class="o">.</span><span class="n">Attribute</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+<span class="n">TargetType</span> <span class="o">=</span> <span class="n">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">(</span><span class="s2">&quot;TargetType&quot;</span><span class="p">,</span> <span class="n">data_pb</span><span class="o">.</span><span class="n">Weapon</span><span class="o">.</span><span class="n">TargetType</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+<span class="n">Target</span> <span class="o">=</span> <span class="n">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">(</span><span class="s2">&quot;Target&quot;</span><span class="p">,</span> <span class="n">data_pb</span><span class="o">.</span><span class="n">AbilityData</span><span class="o">.</span><span class="n">Target</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+
+<span class="n">ActionResult</span> <span class="o">=</span> <span class="n">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">(</span><span class="s2">&quot;ActionResult&quot;</span><span class="p">,</span> <span class="n">error_pb</span><span class="o">.</span><span class="n">ActionResult</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+
+<span class="n">race_worker</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Race</span><span class="p">,</span> <span class="n">UnitTypeId</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">Race</span><span class="o">.</span><span class="n">Protoss</span><span class="p">:</span> <span class="n">UnitTypeId</span><span class="o">.</span><span class="n">PROBE</span><span class="p">,</span>
+    <span class="n">Race</span><span class="o">.</span><span class="n">Terran</span><span class="p">:</span> <span class="n">UnitTypeId</span><span class="o">.</span><span class="n">SCV</span><span class="p">,</span>
+    <span class="n">Race</span><span class="o">.</span><span class="n">Zerg</span><span class="p">:</span> <span class="n">UnitTypeId</span><span class="o">.</span><span class="n">DRONE</span>
+<span class="p">}</span>
+
+<span class="n">race_townhalls</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Race</span><span class="p">,</span> <span class="n">Set</span><span class="p">[</span><span class="n">UnitTypeId</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">Race</span><span class="o">.</span><span class="n">Protoss</span><span class="p">:</span> <span class="p">{</span><span class="n">UnitTypeId</span><span class="o">.</span><span class="n">NEXUS</span><span class="p">},</span>
+    <span class="n">Race</span><span class="o">.</span><span class="n">Terran</span><span class="p">:</span> <span class="p">{</span><span class="n">UnitTypeId</span><span class="o">.</span><span class="n">COMMANDCENTER</span><span class="p">,</span> <span class="n">UnitTypeId</span><span class="o">.</span><span class="n">ORBITALCOMMAND</span><span class="p">,</span> <span class="n">UnitTypeId</span><span class="o">.</span><span class="n">PLANETARYFORTRESS</span><span class="p">},</span>
+    <span class="n">Race</span><span class="o">.</span><span class="n">Zerg</span><span class="p">:</span> <span class="p">{</span><span class="n">UnitTypeId</span><span class="o">.</span><span class="n">HATCHERY</span><span class="p">,</span> <span class="n">UnitTypeId</span><span class="o">.</span><span class="n">LAIR</span><span class="p">,</span> <span class="n">UnitTypeId</span><span class="o">.</span><span class="n">HIVE</span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">warpgate_abilities</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">AbilityId</span><span class="p">,</span> <span class="n">AbilityId</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">AbilityId</span><span class="o">.</span><span class="n">GATEWAYTRAIN_ZEALOT</span><span class="p">:</span> <span class="n">AbilityId</span><span class="o">.</span><span class="n">WARPGATETRAIN_ZEALOT</span><span class="p">,</span>
+    <span class="n">AbilityId</span><span class="o">.</span><span class="n">GATEWAYTRAIN_STALKER</span><span class="p">:</span> <span class="n">AbilityId</span><span class="o">.</span><span class="n">WARPGATETRAIN_STALKER</span><span class="p">,</span>
+    <span class="n">AbilityId</span><span class="o">.</span><span class="n">GATEWAYTRAIN_HIGHTEMPLAR</span><span class="p">:</span> <span class="n">AbilityId</span><span class="o">.</span><span class="n">WARPGATETRAIN_HIGHTEMPLAR</span><span class="p">,</span>
+    <span class="n">AbilityId</span><span class="o">.</span><span class="n">GATEWAYTRAIN_DARKTEMPLAR</span><span class="p">:</span> <span class="n">AbilityId</span><span class="o">.</span><span class="n">WARPGATETRAIN_DARKTEMPLAR</span><span class="p">,</span>
+    <span class="n">AbilityId</span><span class="o">.</span><span class="n">GATEWAYTRAIN_SENTRY</span><span class="p">:</span> <span class="n">AbilityId</span><span class="o">.</span><span class="n">WARPGATETRAIN_SENTRY</span><span class="p">,</span>
+    <span class="n">AbilityId</span><span class="o">.</span><span class="n">TRAIN_ADEPT</span><span class="p">:</span> <span class="n">AbilityId</span><span class="o">.</span><span class="n">TRAINWARP_ADEPT</span>
+<span class="p">}</span>
+
+<span class="n">race_gas</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Race</span><span class="p">,</span> <span class="n">UnitTypeId</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">Race</span><span class="o">.</span><span class="n">Protoss</span><span class="p">:</span> <span class="n">UnitTypeId</span><span class="o">.</span><span class="n">ASSIMILATOR</span><span class="p">,</span>
+    <span class="n">Race</span><span class="o">.</span><span class="n">Terran</span><span class="p">:</span> <span class="n">UnitTypeId</span><span class="o">.</span><span class="n">REFINERY</span><span class="p">,</span>
+    <span class="n">Race</span><span class="o">.</span><span class="n">Zerg</span><span class="p">:</span> <span class="n">UnitTypeId</span><span class="o">.</span><span class="n">EXTRACTOR</span>
+<span class="p">}</span>
+</pre></div>
+
+  </div>
+
+  </header>
+
+  <section id="section-items">
+    <h2 class="section-title" id="header-variables">Module variables</h2>
+      <div class="item">
+      <p id="sc2.data.race_gas" class="name">var <span class="ident">race_gas</span></p>
+      
+  
+  <div class="source_cont">
+</div>
+
+      </div>
+      <div class="item">
+      <p id="sc2.data.race_townhalls" class="name">var <span class="ident">race_townhalls</span></p>
+      
+  
+  <div class="source_cont">
+</div>
+
+      </div>
+      <div class="item">
+      <p id="sc2.data.race_worker" class="name">var <span class="ident">race_worker</span></p>
+      
+  
+  <div class="source_cont">
+</div>
+
+      </div>
+      <div class="item">
+      <p id="sc2.data.warpgate_abilities" class="name">var <span class="ident">warpgate_abilities</span></p>
+      
+  
+  <div class="source_cont">
+</div>
+
+      </div>
+
+
+    <h2 class="section-title" id="header-classes">Classes</h2>
+      
+      <div class="item">
+      <p id="sc2.data.ActionResult" class="name">class <span class="ident">ActionResult</span></p>
+      
+  
+    <div class="desc"><p>An enumeration.</p></div>
+  <div class="source_cont">
+</div>
+
+
+      <div class="class">
+          <h3>Ancestors (in MRO)</h3>
+          <ul class="class_list">
+          <li><a href="#sc2.data.ActionResult">ActionResult</a></li>
+          <li>enum.Enum</li>
+          <li>builtins.object</li>
+          </ul>
+          <h3>Class variables</h3>
+            <div class="item">
+            <p id="sc2.data.ActionResult.AddOnTooFarFromBuilding" class="name">var <span class="ident">AddOnTooFarFromBuilding</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.AlreadySpawningLarva" class="name">var <span class="ident">AlreadySpawningLarva</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.AlreadyTargeted" class="name">var <span class="ident">AlreadyTargeted</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.BuildTechRequirementsNotMet" class="name">var <span class="ident">BuildTechRequirementsNotMet</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.BuildingIsUnderConstruction" class="name">var <span class="ident">BuildingIsUnderConstruction</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantAddMoreCharges" class="name">var <span class="ident">CantAddMoreCharges</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantAttackWeaponsDisabled" class="name">var <span class="ident">CantAttackWeaponsDisabled</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantAttackWithoutAmmo" class="name">var <span class="ident">CantAttackWithoutAmmo</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantBuildLocationInvalid" class="name">var <span class="ident">CantBuildLocationInvalid</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantBuildOnDenseTerrain" class="name">var <span class="ident">CantBuildOnDenseTerrain</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantBuildOnThat" class="name">var <span class="ident">CantBuildOnThat</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantBuildTooCloseToCreepSource" class="name">var <span class="ident">CantBuildTooCloseToCreepSource</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantBuildTooCloseToDropOff" class="name">var <span class="ident">CantBuildTooCloseToDropOff</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantBuildTooCloseToResources" class="name">var <span class="ident">CantBuildTooCloseToResources</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantBuildTooFarFromBuildPowerSource" class="name">var <span class="ident">CantBuildTooFarFromBuildPowerSource</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantBuildTooFarFromCreepSource" class="name">var <span class="ident">CantBuildTooFarFromCreepSource</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantBuildTooFarFromWater" class="name">var <span class="ident">CantBuildTooFarFromWater</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantDropThisItem" class="name">var <span class="ident">CantDropThisItem</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantFindCancelOrder" class="name">var <span class="ident">CantFindCancelOrder</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantFindDropOff" class="name">var <span class="ident">CantFindDropOff</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantFindEnoughTargets" class="name">var <span class="ident">CantFindEnoughTargets</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantFindPlacementLocation" class="name">var <span class="ident">CantFindPlacementLocation</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantFindTeleportLocation" class="name">var <span class="ident">CantFindTeleportLocation</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantHarvestThatResource" class="name">var <span class="ident">CantHarvestThatResource</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantHoldAnyMoreAmmo" class="name">var <span class="ident">CantHoldAnyMoreAmmo</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantHoldAnyMoreItems" class="name">var <span class="ident">CantHoldAnyMoreItems</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantHoldThat" class="name">var <span class="ident">CantHoldThat</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantLandLocationInvalid" class="name">var <span class="ident">CantLandLocationInvalid</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantLandOnDenseTerrain" class="name">var <span class="ident">CantLandOnDenseTerrain</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantLandTooCloseToCreepSource" class="name">var <span class="ident">CantLandTooCloseToCreepSource</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantLandTooCloseToResources" class="name">var <span class="ident">CantLandTooCloseToResources</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantLandTooFarFromBuildPowerSource" class="name">var <span class="ident">CantLandTooFarFromBuildPowerSource</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantLandTooFarFromCreepSource" class="name">var <span class="ident">CantLandTooFarFromCreepSource</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantLandTooFarFromTrainPowerSource" class="name">var <span class="ident">CantLandTooFarFromTrainPowerSource</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantLandTooFarFromWater" class="name">var <span class="ident">CantLandTooFarFromWater</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantLoadImmobileUnits" class="name">var <span class="ident">CantLoadImmobileUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantLoadOtherPlayersUnits" class="name">var <span class="ident">CantLoadOtherPlayersUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantLoadThatUnit" class="name">var <span class="ident">CantLoadThatUnit</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantLockdown" class="name">var <span class="ident">CantLockdown</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantMindControl" class="name">var <span class="ident">CantMindControl</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantMoveThisItem" class="name">var <span class="ident">CantMoveThisItem</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantPawnThisUnit" class="name">var <span class="ident">CantPawnThisUnit</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantQueueThatOrder" class="name">var <span class="ident">CantQueueThatOrder</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantRechargeImmobileUnits" class="name">var <span class="ident">CantRechargeImmobileUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantRechargeOtherPlayersUnits" class="name">var <span class="ident">CantRechargeOtherPlayersUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantRechargeUnderConstructionUnits" class="name">var <span class="ident">CantRechargeUnderConstructionUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantSeeBuildLocation" class="name">var <span class="ident">CantSeeBuildLocation</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantSeeLandLocation" class="name">var <span class="ident">CantSeeLandLocation</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantSpend" class="name">var <span class="ident">CantSpend</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantTargetAirUnits" class="name">var <span class="ident">CantTargetAirUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantTargetArmoredUnits" class="name">var <span class="ident">CantTargetArmoredUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantTargetBiologicalUnits" class="name">var <span class="ident">CantTargetBiologicalUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantTargetBuriedUnits" class="name">var <span class="ident">CantTargetBuriedUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantTargetCaster" class="name">var <span class="ident">CantTargetCaster</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantTargetCloakedUnits" class="name">var <span class="ident">CantTargetCloakedUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantTargetDazedUnits" class="name">var <span class="ident">CantTargetDazedUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantTargetDeadUnits" class="name">var <span class="ident">CantTargetDeadUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantTargetDestructibles" class="name">var <span class="ident">CantTargetDestructibles</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantTargetDetectedUnits" class="name">var <span class="ident">CantTargetDetectedUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantTargetEnemyUnits" class="name">var <span class="ident">CantTargetEnemyUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantTargetEnergyCapableUnits" class="name">var <span class="ident">CantTargetEnergyCapableUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantTargetExhaustedResources" class="name">var <span class="ident">CantTargetExhaustedResources</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantTargetFlyers" class="name">var <span class="ident">CantTargetFlyers</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantTargetFriendlyUnits" class="name">var <span class="ident">CantTargetFriendlyUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantTargetGroundUnits" class="name">var <span class="ident">CantTargetGroundUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantTargetHallucinations" class="name">var <span class="ident">CantTargetHallucinations</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantTargetHeroicUnits" class="name">var <span class="ident">CantTargetHeroicUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantTargetHiddenUnits" class="name">var <span class="ident">CantTargetHiddenUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantTargetInvulnerableUnits" class="name">var <span class="ident">CantTargetInvulnerableUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantTargetItems" class="name">var <span class="ident">CantTargetItems</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantTargetLightUnits" class="name">var <span class="ident">CantTargetLightUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantTargetMassiveUnits" class="name">var <span class="ident">CantTargetMassiveUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantTargetMechanicalUnits" class="name">var <span class="ident">CantTargetMechanicalUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantTargetMissile" class="name">var <span class="ident">CantTargetMissile</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantTargetNeutralUnits" class="name">var <span class="ident">CantTargetNeutralUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantTargetOuter" class="name">var <span class="ident">CantTargetOuter</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantTargetPassiveUnits" class="name">var <span class="ident">CantTargetPassiveUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantTargetPreventDefeatUnits" class="name">var <span class="ident">CantTargetPreventDefeatUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantTargetPreventRevealUnits" class="name">var <span class="ident">CantTargetPreventRevealUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantTargetPsionicUnits" class="name">var <span class="ident">CantTargetPsionicUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantTargetRace" class="name">var <span class="ident">CantTargetRace</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantTargetResistantUnits" class="name">var <span class="ident">CantTargetResistantUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantTargetRevivableUnits" class="name">var <span class="ident">CantTargetRevivableUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantTargetRoboticUnits" class="name">var <span class="ident">CantTargetRoboticUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantTargetShieldCapableUnits" class="name">var <span class="ident">CantTargetShieldCapableUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantTargetSimilarUnits" class="name">var <span class="ident">CantTargetSimilarUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantTargetStructures" class="name">var <span class="ident">CantTargetStructures</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantTargetStunnedUnits" class="name">var <span class="ident">CantTargetStunnedUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantTargetSummonedUnits" class="name">var <span class="ident">CantTargetSummonedUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantTargetThatUnit" class="name">var <span class="ident">CantTargetThatUnit</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantTargetUncommandableUnits" class="name">var <span class="ident">CantTargetUncommandableUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantTargetUnderConstructionUnits" class="name">var <span class="ident">CantTargetUnderConstructionUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantTargetUnitWithEnergy" class="name">var <span class="ident">CantTargetUnitWithEnergy</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantTargetUnitWithShields" class="name">var <span class="ident">CantTargetUnitWithShields</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantTargetUnitsInAStasisField" class="name">var <span class="ident">CantTargetUnitsInAStasisField</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantTargetUnstoppableUnits" class="name">var <span class="ident">CantTargetUnstoppableUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantTargetUser1" class="name">var <span class="ident">CantTargetUser1</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantTargetWorkerUnits" class="name">var <span class="ident">CantTargetWorkerUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantTargetYourOwnUnits" class="name">var <span class="ident">CantTargetYourOwnUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantTrade" class="name">var <span class="ident">CantTrade</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantTrainTooFarFromTrainPowerSource" class="name">var <span class="ident">CantTrainTooFarFromTrainPowerSource</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantUnloadUnitsThere" class="name">var <span class="ident">CantUnloadUnitsThere</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantUseInfoPanel" class="name">var <span class="ident">CantUseInfoPanel</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantUseMinimap" class="name">var <span class="ident">CantUseMinimap</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CantWarpInUnitsThere" class="name">var <span class="ident">CantWarpInUnitsThere</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.Cooldown" class="name">var <span class="ident">Cooldown</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CouldntAllocateUnit" class="name">var <span class="ident">CouldntAllocateUnit</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.CouldntReachTarget" class="name">var <span class="ident">CouldntReachTarget</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.EnergySuppressed" class="name">var <span class="ident">EnergySuppressed</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.Error" class="name">var <span class="ident">Error</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.FoodUsageImpossible" class="name">var <span class="ident">FoodUsageImpossible</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.HarvestersNotRequired" class="name">var <span class="ident">HarvestersNotRequired</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.InvalidItemClass" class="name">var <span class="ident">InvalidItemClass</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.LifeSuppressed" class="name">var <span class="ident">LifeSuppressed</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.LoadAllNoTargetsFound" class="name">var <span class="ident">LoadAllNoTargetsFound</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustBuildRefineryFirst" class="name">var <span class="ident">MustBuildRefineryFirst</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustLockdownUnitFirst" class="name">var <span class="ident">MustLockdownUnitFirst</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetAirUnits" class="name">var <span class="ident">MustTargetAirUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetArmoredUnits" class="name">var <span class="ident">MustTargetArmoredUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetBiologicalUnits" class="name">var <span class="ident">MustTargetBiologicalUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetBuriedUnits" class="name">var <span class="ident">MustTargetBuriedUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetCaster" class="name">var <span class="ident">MustTargetCaster</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetCloakedUnits" class="name">var <span class="ident">MustTargetCloakedUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetDazedUnits" class="name">var <span class="ident">MustTargetDazedUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetDeadUnits" class="name">var <span class="ident">MustTargetDeadUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetDestructibles" class="name">var <span class="ident">MustTargetDestructibles</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetDetectedUnits" class="name">var <span class="ident">MustTargetDetectedUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetEnemyUnits" class="name">var <span class="ident">MustTargetEnemyUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetEnergyCapableUnits" class="name">var <span class="ident">MustTargetEnergyCapableUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetFlyers" class="name">var <span class="ident">MustTargetFlyers</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetFriendlyUnits" class="name">var <span class="ident">MustTargetFriendlyUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetGroundUnits" class="name">var <span class="ident">MustTargetGroundUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetHallucinations" class="name">var <span class="ident">MustTargetHallucinations</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetHeroicUnits" class="name">var <span class="ident">MustTargetHeroicUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetHiddenUnits" class="name">var <span class="ident">MustTargetHiddenUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetInventory" class="name">var <span class="ident">MustTargetInventory</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetInvulnerableUnits" class="name">var <span class="ident">MustTargetInvulnerableUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetItems" class="name">var <span class="ident">MustTargetItems</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetLightUnits" class="name">var <span class="ident">MustTargetLightUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetMassiveUnits" class="name">var <span class="ident">MustTargetMassiveUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetMechanicalUnits" class="name">var <span class="ident">MustTargetMechanicalUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetMissile" class="name">var <span class="ident">MustTargetMissile</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetNeutralUnits" class="name">var <span class="ident">MustTargetNeutralUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetOuter" class="name">var <span class="ident">MustTargetOuter</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetPassiveUnits" class="name">var <span class="ident">MustTargetPassiveUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetPawnableUnit" class="name">var <span class="ident">MustTargetPawnableUnit</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetPreventDefeatUnits" class="name">var <span class="ident">MustTargetPreventDefeatUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetPreventRevealUnits" class="name">var <span class="ident">MustTargetPreventRevealUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetPsionicUnits" class="name">var <span class="ident">MustTargetPsionicUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetRace" class="name">var <span class="ident">MustTargetRace</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetResistantUnits" class="name">var <span class="ident">MustTargetResistantUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetResources" class="name">var <span class="ident">MustTargetResources</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetRevivableUnits" class="name">var <span class="ident">MustTargetRevivableUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetRoboticUnits" class="name">var <span class="ident">MustTargetRoboticUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetShieldCapableUnits" class="name">var <span class="ident">MustTargetShieldCapableUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetSimilarUnits" class="name">var <span class="ident">MustTargetSimilarUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetStructures" class="name">var <span class="ident">MustTargetStructures</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetStunnedUnits" class="name">var <span class="ident">MustTargetStunnedUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetSummonedUnits" class="name">var <span class="ident">MustTargetSummonedUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetUncommandableUnits" class="name">var <span class="ident">MustTargetUncommandableUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetUnderConstructionUnits" class="name">var <span class="ident">MustTargetUnderConstructionUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetUnit" class="name">var <span class="ident">MustTargetUnit</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetUnitWithEnergy" class="name">var <span class="ident">MustTargetUnitWithEnergy</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetUnitWithLife" class="name">var <span class="ident">MustTargetUnitWithLife</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetUnitWithShields" class="name">var <span class="ident">MustTargetUnitWithShields</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetUnitsInAStasisField" class="name">var <span class="ident">MustTargetUnitsInAStasisField</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetUnstoppableUnits" class="name">var <span class="ident">MustTargetUnstoppableUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetUser1" class="name">var <span class="ident">MustTargetUser1</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetVisibleLocation" class="name">var <span class="ident">MustTargetVisibleLocation</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetVisibleUnit" class="name">var <span class="ident">MustTargetVisibleUnit</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetWalkableLocation" class="name">var <span class="ident">MustTargetWalkableLocation</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetWorkerUnits" class="name">var <span class="ident">MustTargetWorkerUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.MustTargetYourOwnUnits" class="name">var <span class="ident">MustTargetYourOwnUnits</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.NoCalldownAvailable" class="name">var <span class="ident">NoCalldownAvailable</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.NoCargoToUnload" class="name">var <span class="ident">NoCargoToUnload</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.NoItemsToDrop" class="name">var <span class="ident">NoItemsToDrop</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.NotEnoughCharges" class="name">var <span class="ident">NotEnoughCharges</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.NotEnoughCustom" class="name">var <span class="ident">NotEnoughCustom</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.NotEnoughEnergy" class="name">var <span class="ident">NotEnoughEnergy</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.NotEnoughFood" class="name">var <span class="ident">NotEnoughFood</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.NotEnoughLife" class="name">var <span class="ident">NotEnoughLife</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.NotEnoughMinerals" class="name">var <span class="ident">NotEnoughMinerals</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.NotEnoughRoomToLoadUnit" class="name">var <span class="ident">NotEnoughRoomToLoadUnit</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.NotEnoughShields" class="name">var <span class="ident">NotEnoughShields</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.NotEnoughTerrazine" class="name">var <span class="ident">NotEnoughTerrazine</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.NotEnoughVespene" class="name">var <span class="ident">NotEnoughVespene</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.NotSupported" class="name">var <span class="ident">NotSupported</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.NotWhileOccupied" class="name">var <span class="ident">NotWhileOccupied</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.OrderQueueIsFull" class="name">var <span class="ident">OrderQueueIsFull</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.QueueIsFull" class="name">var <span class="ident">QueueIsFull</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.RallyQueueIsFull" class="name">var <span class="ident">RallyQueueIsFull</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.RequiresHealTarget" class="name">var <span class="ident">RequiresHealTarget</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.RequiresRepairTarget" class="name">var <span class="ident">RequiresRepairTarget</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.Retry" class="name">var <span class="ident">Retry</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.ShieldsSuppressed" class="name">var <span class="ident">ShieldsSuppressed</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.Success" class="name">var <span class="ident">Success</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.TargetHasNoInventory" class="name">var <span class="ident">TargetHasNoInventory</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.TargetIsOutOfArc" class="name">var <span class="ident">TargetIsOutOfArc</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.TargetIsOutOfRange" class="name">var <span class="ident">TargetIsOutOfRange</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.TargetIsTooClose" class="name">var <span class="ident">TargetIsTooClose</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.TechRequirementsNotMet" class="name">var <span class="ident">TechRequirementsNotMet</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.TooMuchCustom" class="name">var <span class="ident">TooMuchCustom</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.TooMuchEnergy" class="name">var <span class="ident">TooMuchEnergy</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.TooMuchFood" class="name">var <span class="ident">TooMuchFood</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.TooMuchLife" class="name">var <span class="ident">TooMuchLife</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.TooMuchMinerals" class="name">var <span class="ident">TooMuchMinerals</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.TooMuchShields" class="name">var <span class="ident">TooMuchShields</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.TooMuchTerrazine" class="name">var <span class="ident">TooMuchTerrazine</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.TooMuchVespene" class="name">var <span class="ident">TooMuchVespene</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.TransportIsHoldingPosition" class="name">var <span class="ident">TransportIsHoldingPosition</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.UnitCantMove" class="name">var <span class="ident">UnitCantMove</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.WaypointListFull" class="name">var <span class="ident">WaypointListFull</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.YouCantControlThatUnit" class="name">var <span class="ident">YouCantControlThatUnit</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.YouCantIssueCommandsToThatUnit" class="name">var <span class="ident">YouCantIssueCommandsToThatUnit</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.name" class="name">var <span class="ident">name</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ActionResult.value" class="name">var <span class="ident">value</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+      </div>
+      </div>
+      
+      <div class="item">
+      <p id="sc2.data.Alert" class="name">class <span class="ident">Alert</span></p>
+      
+  
+    <div class="desc"><p>An enumeration.</p></div>
+  <div class="source_cont">
+</div>
+
+
+      <div class="class">
+          <h3>Ancestors (in MRO)</h3>
+          <ul class="class_list">
+          <li><a href="#sc2.data.Alert">Alert</a></li>
+          <li>enum.Enum</li>
+          <li>builtins.object</li>
+          </ul>
+          <h3>Class variables</h3>
+            <div class="item">
+            <p id="sc2.data.Alert.NuclearLaunchDetected" class="name">var <span class="ident">NuclearLaunchDetected</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Alert.NydusWormDetected" class="name">var <span class="ident">NydusWormDetected</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Alert.name" class="name">var <span class="ident">name</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Alert.value" class="name">var <span class="ident">value</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+      </div>
+      </div>
+      
+      <div class="item">
+      <p id="sc2.data.Alliance" class="name">class <span class="ident">Alliance</span></p>
+      
+  
+    <div class="desc"><p>An enumeration.</p></div>
+  <div class="source_cont">
+</div>
+
+
+      <div class="class">
+          <h3>Ancestors (in MRO)</h3>
+          <ul class="class_list">
+          <li><a href="#sc2.data.Alliance">Alliance</a></li>
+          <li>enum.Enum</li>
+          <li>builtins.object</li>
+          </ul>
+          <h3>Class variables</h3>
+            <div class="item">
+            <p id="sc2.data.Alliance.Ally" class="name">var <span class="ident">Ally</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Alliance.Enemy" class="name">var <span class="ident">Enemy</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Alliance.Neutral" class="name">var <span class="ident">Neutral</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Alliance.Self" class="name">var <span class="ident">Self</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Alliance.name" class="name">var <span class="ident">name</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Alliance.value" class="name">var <span class="ident">value</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+      </div>
+      </div>
+      
+      <div class="item">
+      <p id="sc2.data.Attribute" class="name">class <span class="ident">Attribute</span></p>
+      
+  
+    <div class="desc"><p>An enumeration.</p></div>
+  <div class="source_cont">
+</div>
+
+
+      <div class="class">
+          <h3>Ancestors (in MRO)</h3>
+          <ul class="class_list">
+          <li><a href="#sc2.data.Attribute">Attribute</a></li>
+          <li>enum.Enum</li>
+          <li>builtins.object</li>
+          </ul>
+          <h3>Class variables</h3>
+            <div class="item">
+            <p id="sc2.data.Attribute.Armored" class="name">var <span class="ident">Armored</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Attribute.Biological" class="name">var <span class="ident">Biological</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Attribute.Heroic" class="name">var <span class="ident">Heroic</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Attribute.Hover" class="name">var <span class="ident">Hover</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Attribute.Light" class="name">var <span class="ident">Light</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Attribute.Massive" class="name">var <span class="ident">Massive</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Attribute.Mechanical" class="name">var <span class="ident">Mechanical</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Attribute.Psionic" class="name">var <span class="ident">Psionic</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Attribute.Robotic" class="name">var <span class="ident">Robotic</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Attribute.Structure" class="name">var <span class="ident">Structure</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Attribute.Summoned" class="name">var <span class="ident">Summoned</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Attribute.name" class="name">var <span class="ident">name</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Attribute.value" class="name">var <span class="ident">value</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+      </div>
+      </div>
+      
+      <div class="item">
+      <p id="sc2.data.ChatChannel" class="name">class <span class="ident">ChatChannel</span></p>
+      
+  
+    <div class="desc"><p>An enumeration.</p></div>
+  <div class="source_cont">
+</div>
+
+
+      <div class="class">
+          <h3>Ancestors (in MRO)</h3>
+          <ul class="class_list">
+          <li><a href="#sc2.data.ChatChannel">ChatChannel</a></li>
+          <li>enum.Enum</li>
+          <li>builtins.object</li>
+          </ul>
+          <h3>Class variables</h3>
+            <div class="item">
+            <p id="sc2.data.ChatChannel.Broadcast" class="name">var <span class="ident">Broadcast</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ChatChannel.Team" class="name">var <span class="ident">Team</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ChatChannel.name" class="name">var <span class="ident">name</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.ChatChannel.value" class="name">var <span class="ident">value</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+      </div>
+      </div>
+      
+      <div class="item">
+      <p id="sc2.data.CloakState" class="name">class <span class="ident">CloakState</span></p>
+      
+  
+    <div class="desc"><p>An enumeration.</p></div>
+  <div class="source_cont">
+</div>
+
+
+      <div class="class">
+          <h3>Ancestors (in MRO)</h3>
+          <ul class="class_list">
+          <li><a href="#sc2.data.CloakState">CloakState</a></li>
+          <li>enum.Enum</li>
+          <li>builtins.object</li>
+          </ul>
+          <h3>Class variables</h3>
+            <div class="item">
+            <p id="sc2.data.CloakState.Cloaked" class="name">var <span class="ident">Cloaked</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.CloakState.CloakedDetected" class="name">var <span class="ident">CloakedDetected</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.CloakState.NotCloaked" class="name">var <span class="ident">NotCloaked</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.CloakState.name" class="name">var <span class="ident">name</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.CloakState.value" class="name">var <span class="ident">value</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+      </div>
+      </div>
+      
+      <div class="item">
+      <p id="sc2.data.CreateGameError" class="name">class <span class="ident">CreateGameError</span></p>
+      
+  
+    <div class="desc"><p>An enumeration.</p></div>
+  <div class="source_cont">
+</div>
+
+
+      <div class="class">
+          <h3>Ancestors (in MRO)</h3>
+          <ul class="class_list">
+          <li><a href="#sc2.data.CreateGameError">CreateGameError</a></li>
+          <li>enum.Enum</li>
+          <li>builtins.object</li>
+          </ul>
+          <h3>Class variables</h3>
+            <div class="item">
+            <p id="sc2.data.CreateGameError.InvalidMapData" class="name">var <span class="ident">InvalidMapData</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.CreateGameError.InvalidMapHandle" class="name">var <span class="ident">InvalidMapHandle</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.CreateGameError.InvalidMapName" class="name">var <span class="ident">InvalidMapName</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.CreateGameError.InvalidMapPath" class="name">var <span class="ident">InvalidMapPath</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.CreateGameError.InvalidPlayerSetup" class="name">var <span class="ident">InvalidPlayerSetup</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.CreateGameError.MissingMap" class="name">var <span class="ident">MissingMap</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.CreateGameError.MissingPlayerSetup" class="name">var <span class="ident">MissingPlayerSetup</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.CreateGameError.MultiplayerUnsupported" class="name">var <span class="ident">MultiplayerUnsupported</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.CreateGameError.name" class="name">var <span class="ident">name</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.CreateGameError.value" class="name">var <span class="ident">value</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+      </div>
+      </div>
+      
+      <div class="item">
+      <p id="sc2.data.Difficulty" class="name">class <span class="ident">Difficulty</span></p>
+      
+  
+    <div class="desc"><p>An enumeration.</p></div>
+  <div class="source_cont">
+</div>
+
+
+      <div class="class">
+          <h3>Ancestors (in MRO)</h3>
+          <ul class="class_list">
+          <li><a href="#sc2.data.Difficulty">Difficulty</a></li>
+          <li>enum.Enum</li>
+          <li>builtins.object</li>
+          </ul>
+          <h3>Class variables</h3>
+            <div class="item">
+            <p id="sc2.data.Difficulty.CheatInsane" class="name">var <span class="ident">CheatInsane</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Difficulty.CheatMoney" class="name">var <span class="ident">CheatMoney</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Difficulty.CheatVision" class="name">var <span class="ident">CheatVision</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Difficulty.Easy" class="name">var <span class="ident">Easy</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Difficulty.Hard" class="name">var <span class="ident">Hard</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Difficulty.Harder" class="name">var <span class="ident">Harder</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Difficulty.Medium" class="name">var <span class="ident">Medium</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Difficulty.MediumHard" class="name">var <span class="ident">MediumHard</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Difficulty.VeryEasy" class="name">var <span class="ident">VeryEasy</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Difficulty.VeryHard" class="name">var <span class="ident">VeryHard</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Difficulty.name" class="name">var <span class="ident">name</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Difficulty.value" class="name">var <span class="ident">value</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+      </div>
+      </div>
+      
+      <div class="item">
+      <p id="sc2.data.DisplayType" class="name">class <span class="ident">DisplayType</span></p>
+      
+  
+    <div class="desc"><p>An enumeration.</p></div>
+  <div class="source_cont">
+</div>
+
+
+      <div class="class">
+          <h3>Ancestors (in MRO)</h3>
+          <ul class="class_list">
+          <li><a href="#sc2.data.DisplayType">DisplayType</a></li>
+          <li>enum.Enum</li>
+          <li>builtins.object</li>
+          </ul>
+          <h3>Class variables</h3>
+            <div class="item">
+            <p id="sc2.data.DisplayType.Hidden" class="name">var <span class="ident">Hidden</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.DisplayType.Snapshot" class="name">var <span class="ident">Snapshot</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.DisplayType.Visible" class="name">var <span class="ident">Visible</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.DisplayType.name" class="name">var <span class="ident">name</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.DisplayType.value" class="name">var <span class="ident">value</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+      </div>
+      </div>
+      
+      <div class="item">
+      <p id="sc2.data.PlayerType" class="name">class <span class="ident">PlayerType</span></p>
+      
+  
+    <div class="desc"><p>An enumeration.</p></div>
+  <div class="source_cont">
+</div>
+
+
+      <div class="class">
+          <h3>Ancestors (in MRO)</h3>
+          <ul class="class_list">
+          <li><a href="#sc2.data.PlayerType">PlayerType</a></li>
+          <li>enum.Enum</li>
+          <li>builtins.object</li>
+          </ul>
+          <h3>Class variables</h3>
+            <div class="item">
+            <p id="sc2.data.PlayerType.Computer" class="name">var <span class="ident">Computer</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.PlayerType.Observer" class="name">var <span class="ident">Observer</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.PlayerType.Participant" class="name">var <span class="ident">Participant</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.PlayerType.name" class="name">var <span class="ident">name</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.PlayerType.value" class="name">var <span class="ident">value</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+      </div>
+      </div>
+      
+      <div class="item">
+      <p id="sc2.data.Race" class="name">class <span class="ident">Race</span></p>
+      
+  
+    <div class="desc"><p>An enumeration.</p></div>
+  <div class="source_cont">
+</div>
+
+
+      <div class="class">
+          <h3>Ancestors (in MRO)</h3>
+          <ul class="class_list">
+          <li><a href="#sc2.data.Race">Race</a></li>
+          <li>enum.Enum</li>
+          <li>builtins.object</li>
+          </ul>
+          <h3>Class variables</h3>
+            <div class="item">
+            <p id="sc2.data.Race.NoRace" class="name">var <span class="ident">NoRace</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Race.Protoss" class="name">var <span class="ident">Protoss</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Race.Random" class="name">var <span class="ident">Random</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Race.Terran" class="name">var <span class="ident">Terran</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Race.Zerg" class="name">var <span class="ident">Zerg</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Race.name" class="name">var <span class="ident">name</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Race.value" class="name">var <span class="ident">value</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+      </div>
+      </div>
+      
+      <div class="item">
+      <p id="sc2.data.Result" class="name">class <span class="ident">Result</span></p>
+      
+  
+    <div class="desc"><p>An enumeration.</p></div>
+  <div class="source_cont">
+</div>
+
+
+      <div class="class">
+          <h3>Ancestors (in MRO)</h3>
+          <ul class="class_list">
+          <li><a href="#sc2.data.Result">Result</a></li>
+          <li>enum.Enum</li>
+          <li>builtins.object</li>
+          </ul>
+          <h3>Class variables</h3>
+            <div class="item">
+            <p id="sc2.data.Result.Defeat" class="name">var <span class="ident">Defeat</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Result.Tie" class="name">var <span class="ident">Tie</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Result.Undecided" class="name">var <span class="ident">Undecided</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Result.Victory" class="name">var <span class="ident">Victory</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Result.name" class="name">var <span class="ident">name</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Result.value" class="name">var <span class="ident">value</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+      </div>
+      </div>
+      
+      <div class="item">
+      <p id="sc2.data.Status" class="name">class <span class="ident">Status</span></p>
+      
+  
+    <div class="desc"><p>An enumeration.</p></div>
+  <div class="source_cont">
+</div>
+
+
+      <div class="class">
+          <h3>Ancestors (in MRO)</h3>
+          <ul class="class_list">
+          <li><a href="#sc2.data.Status">Status</a></li>
+          <li>enum.Enum</li>
+          <li>builtins.object</li>
+          </ul>
+          <h3>Class variables</h3>
+            <div class="item">
+            <p id="sc2.data.Status.ended" class="name">var <span class="ident">ended</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Status.in_game" class="name">var <span class="ident">in_game</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Status.in_replay" class="name">var <span class="ident">in_replay</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Status.init_game" class="name">var <span class="ident">init_game</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Status.launched" class="name">var <span class="ident">launched</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Status.name" class="name">var <span class="ident">name</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Status.quit" class="name">var <span class="ident">quit</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Status.unknown" class="name">var <span class="ident">unknown</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Status.value" class="name">var <span class="ident">value</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+      </div>
+      </div>
+      
+      <div class="item">
+      <p id="sc2.data.Target" class="name">class <span class="ident">Target</span></p>
+      
+  
+    <div class="desc"><p>An enumeration.</p></div>
+  <div class="source_cont">
+</div>
+
+
+      <div class="class">
+          <h3>Ancestors (in MRO)</h3>
+          <ul class="class_list">
+          <li><a href="#sc2.data.Target">Target</a></li>
+          <li>enum.Enum</li>
+          <li>builtins.object</li>
+          </ul>
+          <h3>Class variables</h3>
+            <div class="item">
+            <p id="sc2.data.Target.None" class="name">var <span class="ident">None</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Target.Point" class="name">var <span class="ident">Point</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Target.PointOrNone" class="name">var <span class="ident">PointOrNone</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Target.PointOrUnit" class="name">var <span class="ident">PointOrUnit</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Target.Unit" class="name">var <span class="ident">Unit</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Target.name" class="name">var <span class="ident">name</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.Target.value" class="name">var <span class="ident">value</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+      </div>
+      </div>
+      
+      <div class="item">
+      <p id="sc2.data.TargetType" class="name">class <span class="ident">TargetType</span></p>
+      
+  
+    <div class="desc"><p>An enumeration.</p></div>
+  <div class="source_cont">
+</div>
+
+
+      <div class="class">
+          <h3>Ancestors (in MRO)</h3>
+          <ul class="class_list">
+          <li><a href="#sc2.data.TargetType">TargetType</a></li>
+          <li>enum.Enum</li>
+          <li>builtins.object</li>
+          </ul>
+          <h3>Class variables</h3>
+            <div class="item">
+            <p id="sc2.data.TargetType.Air" class="name">var <span class="ident">Air</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.TargetType.Any" class="name">var <span class="ident">Any</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.TargetType.Ground" class="name">var <span class="ident">Ground</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.TargetType.name" class="name">var <span class="ident">name</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="sc2.data.TargetType.value" class="name">var <span class="ident">value</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+      </div>
+      </div>
+
+  </section>
+
+    </article>
+  <div class="clear"> </div>
+  <footer id="footer">
+    <p>
+      Documentation generated by
+      <a href="https://github.com/BurntSushi/pdoc">pdoc 0.3.2</a>
+    </p>
+
+    <p>pdoc is in the public domain with the
+      <a href="http://unlicense.org">UNLICENSE</a></p>
+
+    <p>Design by <a href="http://nadh.in">Kailash Nadh</a></p>
+  </footer>
+</div>
+</body>
+</html>
